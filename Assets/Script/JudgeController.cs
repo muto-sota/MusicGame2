@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Judge : MonoBehaviour
+public class JudgeController : MonoBehaviour
 {
     //変数の宣言
     [SerializeField] private GameObject[] MessageObj;//プレイヤーに判定を伝えるゲームオブジェクト
     [SerializeField] NotesManager notesManager;//スクリプト「notesManager」を入れる変数
     void Update()
     {
-        Debug.Log(GetAbs(Time.time - notesManager.NotesTime[0]));
+        // Debug.Log(GetAbs(Time.time - notesManager.NotesTime[0]));
         if (Input.GetKeyDown(KeyCode.D))//〇キーが押されたとき
         {
             if (notesManager.LaneNum[0] == 1)//押されたボタンはレーンの番号とあっているか？
