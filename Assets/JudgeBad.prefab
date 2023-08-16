@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4978285691659772150}
   - component: {fileID: 9069533903197888040}
   - component: {fileID: 2664835574694964335}
+  - component: {fileID: -3651555404727527794}
   m_Layer: 0
   m_Name: JudgeBad
   m_TagString: Untagged
@@ -188,3 +189,15 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-3651555404727527794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603012282326881373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd42a7a9e3a1b4fe9a8e5e592c0d29b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

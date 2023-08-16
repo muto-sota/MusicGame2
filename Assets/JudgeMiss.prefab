@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5204392093692128326}
   - component: {fileID: 2615572960713035142}
   - component: {fileID: 8281747654688723802}
+  - component: {fileID: 1146654166573942271}
   m_Layer: 0
   m_Name: JudgeMiss
   m_TagString: Untagged
@@ -188,3 +189,16 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1146654166573942271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732728616022361509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd42a7a9e3a1b4fe9a8e5e592c0d29b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animation: {fileID: 8281747654688723802}

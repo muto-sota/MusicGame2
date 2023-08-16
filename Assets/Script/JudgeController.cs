@@ -91,6 +91,8 @@ public class JudgeController : MonoBehaviour
     }
     private void DeleteData()//すでにたたいたノーツを削除する関数
     {
+        Destroy(notesManager.NotesObj[0]);
+        notesManager.NotesObj.RemoveAt(0);
         notesManager.NotesTime.RemoveAt(0);
         notesManager.LaneNum.RemoveAt(0);
         notesManager.NoteType.RemoveAt(0);

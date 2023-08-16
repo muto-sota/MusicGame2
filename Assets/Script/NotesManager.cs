@@ -57,7 +57,7 @@ public class NotesManager : MonoBehaviour
             LaneNum.Add(inputJson.notes[i].block);
             NoteType.Add(inputJson.notes[i].type);
 
-            float z = NotesTime[i] * NotesSpeed - 8.7f;
+            float z = NotesTime[i] * NotesSpeed;
             // Debug.Log(z);
             NotesObj.Add(Instantiate(noteObj, new Vector3(inputJson.notes[i].block - 2.5f, 0.55f, z), Quaternion.identity));
         }

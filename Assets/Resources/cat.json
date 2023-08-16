@@ -1,7 +1,7 @@
 ﻿{
   "name":"cat",
   "maxBlock":7,
-  "bpm":180,
+  "bpm":30,
   "offset":300,
   "bpms":[],
   "speeds":[],
