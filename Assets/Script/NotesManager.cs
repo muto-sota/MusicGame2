@@ -37,7 +37,7 @@ public class NotesManager : MonoBehaviour
     void OnEnable()
     {
         noteNum = 0;
-        songName = "おこちゃま戦争";
+        songName = "cat";
         Load(songName);
     }
 

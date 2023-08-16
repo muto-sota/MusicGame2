@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class LightController : MonoBehaviour
 {
-    [SerializeField] private float speed = 2;
+    [SerializeField] private float speed = 3;
     [SerializeField] private int num = 0;
     private Renderer _renderer;
     private float _alfa = 0;

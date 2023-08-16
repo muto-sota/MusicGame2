@@ -9,9 +9,10 @@ public class Judge : MonoBehaviour
     [SerializeField] NotesManager notesManager;//スクリプト「notesManager」を入れる変数
     void Update()
     {
+        Debug.Log(GetAbs(Time.time - notesManager.NotesTime[0]));
         if (Input.GetKeyDown(KeyCode.D))//〇キーが押されたとき
         {
-            if (notesManager.LaneNum[0] == 0)//押されたボタンはレーンの番号とあっているか？
+            if (notesManager.LaneNum[0] == 1)//押されたボタンはレーンの番号とあっているか？
             {
                 Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
                 /*
@@ -22,21 +23,21 @@ public class Judge : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (notesManager.LaneNum[0] == 1)
+            if (notesManager.LaneNum[0] == 2)
             {
                 Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
             }
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if (notesManager.LaneNum[0] == 2)
+            if (notesManager.LaneNum[0] == 3)
             {
                 Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
             }
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if (notesManager.LaneNum[0] == 3)
+            if (notesManager.LaneNum[0] == 4)
             {
                 Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
             }
@@ -52,7 +53,7 @@ public class Judge : MonoBehaviour
     }
     private void Judgement(float timeLag)
     {
-        if (timeLag <= 0.10)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.1秒以下だったら
+        if (timeLag <= 0.10f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.1秒以下だったら
         {
             Debug.Log("Perfect");
             Message(0);
@@ -60,7 +61,7 @@ public class Judge : MonoBehaviour
         }
         else
         {
-            if (timeLag <= 0.15)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.15秒以下だったら
+            if (timeLag <= 0.15f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.15秒以下だったら
             {
                 Debug.Log("Great");
                 Message(1);
@@ -68,7 +69,7 @@ public class Judge : MonoBehaviour
             }
             else
             {
-                if (timeLag <= 0.20)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.2秒以下だったら
+                if (timeLag <= 0.20f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.2秒以下だったら
                 {
                     Debug.Log("Bad");
                     Message(2);
