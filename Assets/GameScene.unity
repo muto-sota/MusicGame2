@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7b9709b392a4adf9152e3117b870b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   num: 4
 --- !u!65 &961211904
 BoxCollider:
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7b9709b392a4adf9152e3117b870b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   num: 2
 --- !u!65 &1433233646
 BoxCollider:
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7b9709b392a4adf9152e3117b870b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   num: 3
 --- !u!65 &1651415004
 BoxCollider:
@@ -1003,6 +1003,57 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &1781884991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781884993}
+  - component: {fileID: 1781884992}
+  m_Layer: 0
+  m_Name: NotesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1781884992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781884991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed49d015f3ef944489d3e0a9ed194ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteNum: 0
+  LaneNum: 
+  NoteType: 
+  NotesTime: []
+  NotesObj: []
+  NotesSpeed: 8
+  noteObj: {fileID: 2112046924}
+--- !u!4 &1781884993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781884991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.55038756, y: -1.6378365, z: 5.227789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896091213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7b9709b392a4adf9152e3117b870b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   num: 1
 --- !u!65 &1896091215
 BoxCollider:
@@ -1123,6 +1174,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 132067821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2112046924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3374763785510900446, guid: 5c98482cf19074341aaef1407aa0ede9, type: 3}
+  m_PrefabInstance: {fileID: 1496440806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1132,3 +1188,4 @@ SceneRoots:
   - {fileID: 327036074}
   - {fileID: 1496440806}
   - {fileID: 132067821}
+  - {fileID: 1781884993}

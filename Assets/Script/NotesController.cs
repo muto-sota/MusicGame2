@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NotesController : MonoBehaviour
 {
-    private int _NotesSpeed = 5;
+    private int _NotesSpeed = 8;
     // Start is called before the first frame update
     void Start()
     {
