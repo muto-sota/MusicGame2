@@ -14,7 +14,7 @@ public class JudgeController : MonoBehaviour
         {
             if (notesManager.LaneNum[0] == 1)//押されたボタンはレーンの番号とあっているか？
             {
-                Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
+                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)));
                 /*
                 本来ノーツをたたく場所と実際にたたいた場所がどれくらいずれているかを求め、
                 その絶対値をJudgement関数に送る
@@ -25,29 +25,31 @@ public class JudgeController : MonoBehaviour
         {
             if (notesManager.LaneNum[0] == 2)
             {
-                Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
+                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)));
             }
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
             if (notesManager.LaneNum[0] == 3)
             {
-                Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
+                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)));
             }
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
             if (notesManager.LaneNum[0] == 4)
             {
-                Judgement(GetAbs(Time.time - notesManager.NotesTime[0]));
+                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)));
             }
         }
 
-        if (Time.time > notesManager.NotesTime[0] + 0.2f)//本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
+        if (Time.time > notesManager.NotesTime[0] + 0.2f + GManager.instance.StartTime)//本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
         {
             Message(3);
             DeleteData();
             Debug.Log("Miss");
+            GManager.instance.combo = 0;
+            GManager.instance.miss++;
             //ミス
         }
     }
@@ -57,6 +59,8 @@ public class JudgeController : MonoBehaviour
         {
             Debug.Log("Perfect");
             Message(0);
+            GManager.instance.perfect++;
+            GManager.instance.combo++;
             DeleteData();
         }
         else
@@ -65,6 +69,8 @@ public class JudgeController : MonoBehaviour
             {
                 Debug.Log("Great");
                 Message(1);
+                GManager.instance.great++;
+                GManager.instance.combo++;
                 DeleteData();
             }
             else
@@ -73,6 +79,8 @@ public class JudgeController : MonoBehaviour
                 {
                     Debug.Log("Bad");
                     Message(2);
+                    GManager.instance.bad++;
+                    GManager.instance.combo = 0;
                     DeleteData();
                 }
             }
