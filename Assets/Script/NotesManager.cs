@@ -36,7 +36,7 @@ public class NotesManager : MonoBehaviour
 
     void OnEnable()
     {
-        NotesSpeed = GManager.instance.noteSpeed;
+        // NotesSpeed = GManager.instance.noteSpeed;
         noteNum = 0;
         songName = "Tell Your World";
         Load(songName);
@@ -48,6 +48,7 @@ public class NotesManager : MonoBehaviour
         Data inputJson = JsonUtility.FromJson<Data>(inputString);
 
         noteNum = inputJson.notes.Length;
+        // GManager.instance.maxSrore = noteNum * 5;
         
         for (int i = 0; i < inputJson.notes.Length; i++)
         {

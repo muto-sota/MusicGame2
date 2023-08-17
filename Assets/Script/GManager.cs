@@ -19,6 +19,8 @@ public class GManager : MonoBehaviour
     public int great;
     public int bad;
     public int miss;
+    
+    
     public void Awake()
     {
         if (instance == null)
