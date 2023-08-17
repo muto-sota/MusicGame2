@@ -91,12 +91,12 @@ public class JudgeController : MonoBehaviour
             Message(3);
             DeleteData(0);
             Debug.Log("Miss");
-            GManager.instance.combo = 0;
             GManager.instance.miss++;
             if (GManager.instance.maxCombo < GManager.instance.combo)
             {
                 GManager.instance.maxCombo = GManager.instance.combo;
             }
+            GManager.instance.combo = 0;
             //ミス
         }
     }
@@ -132,12 +132,12 @@ public class JudgeController : MonoBehaviour
                     Message(2);
                     GManager.instance.score += 100;
                     GManager.instance.bad++;
-                    GManager.instance.combo = 0;
 
                     if (GManager.instance.maxCombo < GManager.instance.combo)
                     {
                         GManager.instance.maxCombo = GManager.instance.combo;
                     }
+                    GManager.instance.combo = 0;
                     DeleteData(numoffset);
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class MusicManager : MonoBehaviour
         if (!audioSource.isPlaying && Time.time >=2.0f)
         {
             Debug.Log("Music finished!");
+            SceneManager.LoadScene("ResultScene");
         }
     }
 }
