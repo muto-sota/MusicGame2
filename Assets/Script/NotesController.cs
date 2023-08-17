@@ -17,7 +17,7 @@ public class NotesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space) || Time.time >= 1.0f) && !start)
         {
             start = true;
         }
