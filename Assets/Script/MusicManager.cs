@@ -27,5 +27,10 @@ public class MusicManager : MonoBehaviour
             played = true;
             audio.PlayOneShot(Music);
         }
+
+        if (!audio.isPlaying && Time.time >=2.0f)
+        {
+            Debug.Log("Music finished!");
+        }
     }
 }

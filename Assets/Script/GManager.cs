@@ -13,6 +13,7 @@ public class GManager : MonoBehaviour
     public float StartTime;
 
     public int combo;
+    public int maxCombo;
     public int score;
 
     public int perfect;
