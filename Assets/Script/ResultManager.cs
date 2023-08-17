@@ -11,6 +11,7 @@ public class ResultManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI greatCountText;
     [SerializeField] TextMeshProUGUI batCountText;
     [SerializeField] TextMeshProUGUI missCountText;
+    
     // Start is called before the first frame update
     void Start()
     {
