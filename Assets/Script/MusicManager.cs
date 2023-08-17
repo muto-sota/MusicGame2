@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource audioSource;
     AudioClip Music;
     string songName;
     bool played;
@@ -12,7 +12,7 @@ public class MusicManager : MonoBehaviour
     {
         GManager.instance.Start = false;
         songName = "Tell Your World";
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         Music = (AudioClip)Resources.Load("Musics/" + songName);
         played = false;
     }
@@ -25,10 +25,10 @@ public class MusicManager : MonoBehaviour
             GManager.instance.Start = true;
             GManager.instance.StartTime = Time.time;
             played = true;
-            audio.PlayOneShot(Music);
+            audioSource.PlayOneShot(Music);
         }
 
-        if (!audio.isPlaying && Time.time >=2.0f)
+        if (!audioSource.isPlaying && Time.time >=2.0f)
         {
             Debug.Log("Music finished!");
         }

@@ -13,12 +13,12 @@ public class JudgeController : MonoBehaviour
     [SerializeField] TextMeshProUGUI comboText;
     [SerializeField] TextMeshProUGUI scoreText;
 
-    AudioSource audio;
+    AudioSource audioSource;
     [SerializeField] AudioClip hitSound;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
