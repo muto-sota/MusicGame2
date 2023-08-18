@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -40,6 +41,7 @@ public class NotesManager : MonoBehaviour
         noteNum = 0;
         songName = "Tell Your World";
         Load(songName);
+        Debug.Log("musicinformation");
     }
 
     private void Load(string songName)

@@ -35,6 +35,7 @@ public class MusicManager : MonoBehaviour
         {
             GManager.instance.Start = true;
             GManager.instance.StartTime = Time.time;
+            Debug.Log($"スタートタイム{GManager.instance.StartTime}");
             played = true;
             audioSource.PlayOneShot(Music);
         }
