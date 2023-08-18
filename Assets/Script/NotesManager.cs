@@ -41,7 +41,7 @@ public class NotesManager : MonoBehaviour
         noteNum = 0;
         songName = "Tell Your World";
         Load(songName);
-        Debug.Log("musicinformation");
+        // Debug.Log("musicinformation");
     }
 
     private void Load(string songName)

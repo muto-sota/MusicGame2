@@ -15,8 +15,12 @@ public class MusicManager : MonoBehaviour
     
     // [SerializeField] private TextMeshProUGUI finishText;
     [SerializeField]GameObject finishUI;
+    
     void Start()
     {
+        ResetTime();
+        ResetScore();
+        // Debug.Log("ok");
         GManager.instance.Start = false;
         songName = "Tell Your World";
         audioSource = GetComponent<AudioSource>();
@@ -35,18 +39,38 @@ public class MusicManager : MonoBehaviour
         {
             GManager.instance.Start = true;
             GManager.instance.StartTime = Time.time;
-            Debug.Log($"スタートタイム{GManager.instance.StartTime}");
+            // Debug.Log($"スタートタイム{GManager.instance.StartTime}");
             played = true;
             audioSource.PlayOneShot(Music);
         }
 
         if (!audioSource.isPlaying && time >= 2.0f && !finished)
         {
-            Debug.Log("Music finished!");
-            // SceneManager.LoadScene("ResultScene");
+            // Debug.Log("Music finished!");
             Instantiate(finishUI, new Vector3(0.0f,1.5f,0.15f),Quaternion.Euler(45,0,0));
             finished = true;
             audioSource.PlayOneShot(FinishMusic);
+            if ((GManager.instance.score > GManager.instance.highscore) && !GManager.instance.ishighscore)
+            {
+                GManager.instance.highscore = GManager.instance.score;
+                GManager.instance.ishighscore = true;
+            }
         }
+    }
+
+    void ResetTime()
+    {
+        GManager.instance.StartTime = Time.time;
+    }
+    void ResetScore()
+    {
+        GManager.instance.perfect = 0;
+        GManager.instance.great = 0;
+        GManager.instance.bad = 0;
+        GManager.instance.miss = 0;
+        GManager.instance.score = 0;
+        GManager.instance.combo = 0;
+        GManager.instance.maxCombo = 0;
+        GManager.instance.ishighscore = false;
     }
 }

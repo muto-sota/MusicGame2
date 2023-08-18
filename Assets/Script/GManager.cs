@@ -8,7 +8,7 @@ public class GManager : MonoBehaviour
 
     public int songID;
     public float noteSpeed;
-
+    
     public bool Start;
     public float StartTime;
 
@@ -16,6 +16,8 @@ public class GManager : MonoBehaviour
     public int maxCombo;
     public int score;
     public int maxnotes;
+    public int highscore;
+    public bool ishighscore;
 
     public int perfect;
     public int great;

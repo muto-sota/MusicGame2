@@ -25,7 +25,8 @@ public class JudgeController : MonoBehaviour
     }
     void Update()
     {
-        // Debug.Log(Time.deltaTime);
+        // Debug.Log($"nownote:{nownotes}");
+        // Debug.Log(GManager.instance.maxnotes);
         // Debug.Log(GetAbs(Time.time - notesManager.NotesTime[0]));
         // time += Time.deltaTime;
         if (nownotes != GManager.instance.maxnotes)
@@ -107,7 +108,7 @@ public class JudgeController : MonoBehaviour
                 }
 
                 GManager.instance.combo = 0;
-                nownotes++;
+                // nownotes++;
                 //ミス
             }
         }
@@ -115,10 +116,10 @@ public class JudgeController : MonoBehaviour
     private void Judgement(float timeLag, int numoffset)
     {
         // audio.PlayOneShot(hitSound);
-        nownotes++;
+        // nownotes++;
         if (timeLag <= 0.10f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.1秒以下だったら
         {
-            Debug.Log("Perfect");
+            // Debug.Log("Perfect");
             Message(0);
             GManager.instance.score += 500;
             GManager.instance.perfect++;
@@ -177,6 +178,8 @@ public class JudgeController : MonoBehaviour
 
         comboText.text = GManager.instance.combo.ToString();
         scoreText.text = GManager.instance.score.ToString();
+
+        nownotes++;
     }
 
     private void Message(int judge)//判定を表示する
