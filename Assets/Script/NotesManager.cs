@@ -34,7 +34,7 @@ public class NotesManager : MonoBehaviour
     [SerializeField] float NotesSpeed = 8;
     [SerializeField] GameObject noteObj;
 
-    void OnEnable()
+    void Awake()
     {
         // NotesSpeed = GManager.instance.noteSpeed;
         noteNum = 0;
