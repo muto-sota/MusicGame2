@@ -590,6 +590,7 @@ MonoBehaviour:
   combo: 0
   maxCombo: 0
   score: 0
+  maxnotes: 0
   perfect: 0
   great: 0
   bad: 0
@@ -1484,6 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b5af8dc12444d8b90582045c162636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishUI: {fileID: 4603012282326881373, guid: a14e530058ce74dcab5964dec229e0eb, type: 3}
 --- !u!4 &1398232030
 Transform:
   m_ObjectHideFlags: 0

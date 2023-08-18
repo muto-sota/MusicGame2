@@ -15,6 +15,7 @@ public class GManager : MonoBehaviour
     public int combo;
     public int maxCombo;
     public int score;
+    public int maxnotes;
 
     public int perfect;
     public int great;

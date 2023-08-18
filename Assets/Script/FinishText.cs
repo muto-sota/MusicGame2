@@ -17,7 +17,7 @@ public class FinishText : MonoBehaviour
 
     private async UniTask WaitAnimationFinishAsync()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(1));
+        await UniTask.Delay(TimeSpan.FromSeconds(2));
         Destroy(gameObject);
         SceneManager.LoadScene("ResultScene");
     }

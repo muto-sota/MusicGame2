@@ -39,7 +39,7 @@ public class MusicManager : MonoBehaviour
         {
             Debug.Log("Music finished!");
             // SceneManager.LoadScene("ResultScene");
-            Instantiate(finishUI);
+            Instantiate(finishUI, new Vector3(0.0f,1.5f,0.15f),Quaternion.Euler(45,0,0));
             finished = true;
         }
     }

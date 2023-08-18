@@ -12,6 +12,7 @@ public class JudgeController : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI comboText;
     [SerializeField] TextMeshProUGUI scoreText;
+    private int nownotes = 0;
 
     AudioSource audioSource;
     [SerializeField] AudioClip hitSound;
@@ -22,6 +23,7 @@ public class JudgeController : MonoBehaviour
     }
     void Update()
     {
+        // Debug.Log(nownotes);
         // Debug.Log(GetAbs(Time.time - notesManager.NotesTime[0]));
         if (Input.GetKeyDown(KeyCode.D))//〇キーが押されたとき
         {
@@ -85,7 +87,7 @@ public class JudgeController : MonoBehaviour
                 }
             }
         }
-        if (Time.time > notesManager.NotesTime[0] + 0.2f + GManager.instance.StartTime)//本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
+        if ((nownotes <= GManager.instance.maxnotes) &&(Time.time > notesManager.NotesTime[0] + 0.2f + GManager.instance.StartTime))//本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
         {
             Message(3);
             DeleteData(0);
@@ -96,13 +98,14 @@ public class JudgeController : MonoBehaviour
                 GManager.instance.maxCombo = GManager.instance.combo;
             }
             GManager.instance.combo = 0;
+            nownotes++;
             //ミス
         }
     }
     private void Judgement(float timeLag, int numoffset)
     {
         // audio.PlayOneShot(hitSound);
-        
+        nownotes++;
         if (timeLag <= 0.10f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.1秒以下だったら
         {
             Debug.Log("Perfect");

@@ -50,6 +50,8 @@ public class NotesManager : MonoBehaviour
         noteNum = inputJson.notes.Length;
         // GManager.instance.maxSrore = noteNum * 5;
         
+        GManager.instance.maxnotes = inputJson.maxBlock;
+        
         for (int i = 0; i < inputJson.notes.Length; i++)
         {
             float kankaku = 60 / (inputJson.bpm * (float)inputJson.notes[i].lpb);
