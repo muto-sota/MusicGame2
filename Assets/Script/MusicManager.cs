@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,10 @@ public class MusicManager : MonoBehaviour
     AudioClip Music;
     string songName;
     bool played;
+    private bool finished;
+
+    // [SerializeField] private TextMeshProUGUI finishText;
+    [SerializeField]GameObject finishUI;
     void Start()
     {
         GManager.instance.Start = false;
@@ -16,6 +21,7 @@ public class MusicManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         Music = (AudioClip)Resources.Load("Musics/" + songName);
         played = false;
+        finished = false;
     }
 
     // Update is called once per frame
@@ -29,10 +35,12 @@ public class MusicManager : MonoBehaviour
             audioSource.PlayOneShot(Music);
         }
 
-        if (!audioSource.isPlaying && Time.time >=2.0f)
+        if (!audioSource.isPlaying && Time.time >= 2.0f && !finished)
         {
             Debug.Log("Music finished!");
-            SceneManager.LoadScene("ResultScene");
+            // SceneManager.LoadScene("ResultScene");
+            Instantiate(finishUI);
+            finished = true;
         }
     }
 }

@@ -85,7 +85,6 @@ public class JudgeController : MonoBehaviour
                 }
             }
         }
-
         if (Time.time > notesManager.NotesTime[0] + 0.2f + GManager.instance.StartTime)//本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
         {
             Message(3);
