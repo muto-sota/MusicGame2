@@ -6,6 +6,7 @@ public class NotesController : MonoBehaviour
 {
     private float _NotesSpeed = 8;
     private bool start;
+    private float time;
     
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,8 @@ public class NotesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Time.time >= 1.0f) && !start)
+        time += Time.deltaTime;
+        if ((Input.GetKeyDown(KeyCode.Space) || time >= 1.0f) && !start)
         {
             start = true;
         }

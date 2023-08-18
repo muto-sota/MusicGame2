@@ -13,93 +13,103 @@ public class JudgeController : MonoBehaviour
     [SerializeField] TextMeshProUGUI comboText;
     [SerializeField] TextMeshProUGUI scoreText;
     private int nownotes = 0;
+    // private float time;
 
-    AudioSource audioSource;
-    [SerializeField] AudioClip hitSound;
+    // AudioSource audioSource;
+    // AudioClip hitSound;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
+        // hitSound = (AudioClip)Resources.Load("Musics/notes");
     }
     void Update()
     {
-        // Debug.Log(nownotes);
+        // Debug.Log(Time.deltaTime);
         // Debug.Log(GetAbs(Time.time - notesManager.NotesTime[0]));
-        if (Input.GetKeyDown(KeyCode.D))//〇キーが押されたとき
+        // time += Time.deltaTime;
+        if (nownotes != GManager.instance.maxnotes)
         {
-            if (notesManager.LaneNum[0] == 1)//押されたボタンはレーンの番号とあっているか？
+            if (Input.GetKeyDown(KeyCode.D)) //〇キーが押されたとき
             {
-                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)),0);
-                /*
-                本来ノーツをたたく場所と実際にたたいた場所がどれくらいずれているかを求め、
-                その絶対値をJudgement関数に送る
-                */
-            }
-            // else
-            // {
-            //     if (notesManager.LaneNum[1] == 1)
-            //     {
-            //         Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
-            //     }
-            // }
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (notesManager.LaneNum[0] == 2)
-            {
-                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
-            }
-            else
-            {
-                if (notesManager.LaneNum[1] == 2)
+                if (notesManager.LaneNum[0] == 1) //押されたボタンはレーンの番号とあっているか？
                 {
-                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
+                    /*
+                    本来ノーツをたたく場所と実際にたたいた場所がどれくらいずれているかを求め、
+                    その絶対値をJudgement関数に送る
+                    */
+                }
+                else
+                {
+                    if (notesManager.LaneNum[1] == 1)
+                    {
+                        Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    }
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            if (notesManager.LaneNum[0] == 3)
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
-            }
-            else
-            {
-                if (notesManager.LaneNum[1] == 3)
+                if (notesManager.LaneNum[0] == 2)
                 {
-                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
+                }
+                else
+                {
+                    if (notesManager.LaneNum[1] == 2)
+                    {
+                        Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    }
                 }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            if (notesManager.LaneNum[0] == 4)
+            if (Input.GetKeyDown(KeyCode.J))
             {
-                Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
-            }
-            else
-            {
-                if (notesManager.LaneNum[1] == 4)
+                if (notesManager.LaneNum[0] == 3)
                 {
-                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
+                }
+                else
+                {
+                    if (notesManager.LaneNum[1] == 3)
+                    {
+                        Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    }
                 }
             }
-        }
-        if ((nownotes <= GManager.instance.maxnotes) &&(Time.time > notesManager.NotesTime[0] + 0.2f + GManager.instance.StartTime))//本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
-        {
-            Message(3);
-            DeleteData(0);
-            Debug.Log("Miss");
-            GManager.instance.miss++;
-            if (GManager.instance.maxCombo < GManager.instance.combo)
+
+            if (Input.GetKeyDown(KeyCode.K))
             {
-                GManager.instance.maxCombo = GManager.instance.combo;
+                if (notesManager.LaneNum[0] == 4)
+                {
+                    Judgement(GetAbs(Time.time - (notesManager.NotesTime[0] + GManager.instance.StartTime)), 0);
+                }
+                else
+                {
+                    if (notesManager.LaneNum[1] == 4)
+                    {
+                        Judgement(GetAbs(Time.time - (notesManager.NotesTime[1] + GManager.instance.StartTime)), 1);
+                    }
+                }
             }
-            GManager.instance.combo = 0;
-            nownotes++;
-            //ミス
+
+            if (Time.time >
+                notesManager.NotesTime[0] + 0.2f + GManager.instance.StartTime) //本来ノーツをたたくべき時間から0.2秒たっても入力がなかった場合
+            {
+                Message(3);
+                DeleteData(0);
+                // Debug.Log("Miss");
+                GManager.instance.miss++;
+                if (GManager.instance.maxCombo < GManager.instance.combo)
+                {
+                    GManager.instance.maxCombo = GManager.instance.combo;
+                }
+
+                GManager.instance.combo = 0;
+                nownotes++;
+                //ミス
+            }
         }
     }
     private void Judgement(float timeLag, int numoffset)
@@ -119,7 +129,7 @@ public class JudgeController : MonoBehaviour
         {
             if (timeLag <= 0.15f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.15秒以下だったら
             {
-                Debug.Log("Great");
+                // Debug.Log("Great");
                 Message(1);
                 GManager.instance.score += 300;
                 GManager.instance.great++;
@@ -130,7 +140,7 @@ public class JudgeController : MonoBehaviour
             {
                 if (timeLag <= 0.20f)//本来ノーツをたたくべき時間と実際にノーツをたたいた時間の誤差が0.2秒以下だったら
                 {
-                    Debug.Log("Bad");
+                    // Debug.Log("Bad");
                     Message(2);
                     GManager.instance.score += 100;
                     GManager.instance.bad++;
@@ -158,6 +168,7 @@ public class JudgeController : MonoBehaviour
     }
     private void DeleteData(int numOffset)//すでにたたいたノーツを削除する関数
     {
+        // audioSource.PlayOneShot(hitSound);
         Destroy(notesManager.NotesObj[numOffset]);
         notesManager.NotesObj.RemoveAt(numOffset);
         notesManager.NotesTime.RemoveAt(numOffset);
