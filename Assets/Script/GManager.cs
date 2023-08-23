@@ -24,9 +24,13 @@ public class GManager : MonoBehaviour
     public int bad;
     public int miss;
     
+    public GameObject other;
     
     public void Awake()
     {
+        ChangeScene change = other.GetComponent<ChangeScene>();
+        change.BlackIn();
+        
         if (instance == null)
         {
             instance = this;
